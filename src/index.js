@@ -38,9 +38,9 @@ entries.forEach(entry => {
       renderMarkupPhotos(data);
       const hasPhoto = apiPhotoService.page < totalPage && data.totalHits === 500;
       if (hasPhoto) {
-        if (data.totalHits < 500) {
-            return;
-        }
+      if (data.totalHits < 500) {
+        return;
+      }
         observer.observe(refs.guard);
     }
   })
@@ -51,8 +51,9 @@ entries.forEach(entry => {
 const observer = new IntersectionObserver(observeObj, params);
 
 refs.searchForm.addEventListener('submit',onSubmitSearchForm)
-refs.allPhotos.addEventListener('click',selectGalleryElem);
-document.addEventListener('scroll',lightScroll)
+refs.allPhotos.addEventListener('click', selectGalleryElem);
+
+document.addEventListener('scroll',smoothScroll)
 
 function selectGalleryElem(e){
   e.preventDefault();
@@ -118,18 +119,18 @@ function renderMarkupPhotos(data){
       lightbox.refresh();
 }
 
-function clearAll(){
+
+function clearAll() {
+    refs.searchForm.reset();
     refs.allPhotos.innerHTML = '';
 }
 
-function lightScroll(){
-  const { height: cardHeight } = document
-  .querySelector(".gallery")
-  .firstElementChild.getBoundingClientRect();
-
-window.scrollBy({
-  top: cardHeight * 2,
-  behavior: "smooth",
-});
+function smoothScroll() {
+    const { height: cardHeight } = refs.gallery
+    .firstElementChild.getBoundingClientRect();
+    window.scrollBy({
+        top: cardHeight * 2,
+        behavior: "smooth",
+    });
 }
 // 

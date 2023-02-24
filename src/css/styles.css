@@ -78,14 +78,13 @@ body {
   object-fit: cover;
 }
 
-
 .photo-link {
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
-  transition: transform var(--animation-duration) var(--timing-function);
+  transition: all 0.3s;
   background-color: #fffcf4;
   display: block;
-  color: var(--main-text-color);
+  color: rgb(0, 0, 0);
   text-decoration: none;
   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
   height: 100%;
