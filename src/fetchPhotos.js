@@ -1,6 +1,8 @@
 const axios = require('axios').default;
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
+
+
 export default class ApiPhotoService{
     constructor(){
         this.URL = 'https://pixabay.com/api/';
